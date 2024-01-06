@@ -1,0 +1,29 @@
+/**Median of Two Sorted Arrays
+Hard
+27.2K
+3K
+Companies
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+Solved it pretty drunk beating 87% in run time
+
+*/
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function (nums1, nums2) {
+    const newA = nums1.concat(nums2);
+    newA.sort(function(a,b){return a-b});
+    if(newA.length%2>0){
+        return newA[Math.floor(newA.length/2)];
+    }
+    const mid = Math.ceil(newA.length/2);
+    const x = newA[mid-1];
+    const y = newA[mid];
+    return (x+y)/2;
+};
